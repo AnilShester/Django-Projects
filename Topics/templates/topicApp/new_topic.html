@@ -1,0 +1,24 @@
+{% extends 'topicApp/base.html' %}
+
+{% block title %}
+    add topic
+{%endblock%}
+
+
+{% block bodyBlock %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Add New Topic</h1>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <form method="post">
+            <label class="col-form-label"> Name of the new topic</label>
+            {% csrf_token %}
+            {{ forms.as_p }}
+            <input type="submit" value="Add">
+        </form>
+    </div>
+{% endblock %}

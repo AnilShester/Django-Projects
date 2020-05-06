@@ -1,0 +1,25 @@
+{% extends 'topicApp/base.html' %}
+
+{% block title %}
+    edit entry
+{%endblock%}
+
+{% block bodyBlock %}
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Edit the entry</h1>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <form method="post">
+            <div class="alert alert-primary" role="alert">
+            <p> Edit the text for {{ entry.topic }} id: {{ entry.id }}</p>
+            </div>
+            {% csrf_token %}
+            {{ form.as_p}}
+            <button type="submit" class="btn btn-primary btn-sm" value="Edit">
+                Edit
+            </button>
+        </form>
+    </div>
+{% endblock %}

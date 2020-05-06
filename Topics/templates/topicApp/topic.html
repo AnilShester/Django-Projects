@@ -1,0 +1,32 @@
+{% extends 'topicApp/base.html' %}
+
+{% block title %}
+    Topic
+{% endblock %}
+
+{% block bodyBlock %}
+         <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">{{ topic }}</h1>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Entry</th>
+                    <th scope="col">Created at</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.text| linebreaks}}<a href="{% url 'edit_entry' entry.id %}"> Edit </a>  </td>
+                    <td>{{ entry.date_added}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+     <div  class="container-fluid">
+            <a href='{% url 'new_entry' topic.id %}'><button type="button" class="btn btn-primary btn-sm"> Add new Entry</button></a>
+    </div>
+{% endblock %}
