@@ -1,0 +1,21 @@
+{% extends 'loginApp/base.html' %}
+
+{% block title %}
+    login
+{% endblock %}
+
+{% block other %}
+<div class="container">
+    <h1 class="display-4">This is My Django Webpage</h1>
+    <form action="{% url 'user_login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="Please enter username">
+        <label for="password"> Password</label>
+        <input type="password" name="password"  placeholder="Please enter password">
+        <input type="submit" value="Login">
+    </form>
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'loginApp/base.html' %}
+
+{% block title %} Sign Up{% endblock %}
+
+{% block other %}
+    <div class="container">
+    <h3 class="alert"> Sign up</h3>
+        {% if registered %}
+            <h1> THank you for registering</h1>
+        {% else %}
+            <form method="post" enctype="multipart/form-data">
+                {{ user_form.as_p }}
+                {{ user_profile.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </form>
+        {% endif %}
+    </div>
+
+{% endblock %}
