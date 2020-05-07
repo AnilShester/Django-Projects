@@ -1,0 +1,21 @@
+{% extends 'topicApp/base.html' %}
+
+{% block title %} login {% endblock %}
+
+{% block bodyBlock %}
+<div class="alert alert-primary" role="alert">
+  Login!
+</div>
+<div class="container">
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label for="username"> Username: </label>
+        <input type = "text" name="username" placeholder="username">
+        <label for="password"> Password: </label>
+        <input type="password" name="password" placeholder="password">
+        <input type="submit" name="Submit">
+    </form>
+
+    </form>
+</div>
+{% endblock%}

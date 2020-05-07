@@ -23,6 +23,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../github_base" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,6 +80,8 @@
       <option name="presentableId" value="Default" />
       <updated>1588749581374</updated>
       <workItem from="1588749583910" duration="17021000" />
+      <workItem from="1588772520147" duration="56000" />
+      <workItem from="1588835706779" duration="17040000" />
     </task>
     <servers />
   </component>

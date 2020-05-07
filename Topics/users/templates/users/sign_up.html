@@ -1,0 +1,24 @@
+{% extends 'topicApp/base.html' %}
+
+{% block title %}sing_up{% endblock %}
+
+
+{% block bodyBlock %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Sign up to the page.</h1>
+        <p class="lead">Sign up and start blogging.</p>
+    </div>
+</div>
+    {% if not registered %}
+        <form class="" method="post">
+            {% csrf_token %}
+            {{ user_form.as_p}}
+            {{ profile_pic.as_p }}
+
+        <input type="submit" value="Signup" class="btn btn-primary">
+        </form>
+        {% else %}
+            <h1> Thank you for registration</h1>
+    {% endif %}
+{% endblock %}

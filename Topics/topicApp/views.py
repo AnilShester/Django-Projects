@@ -3,6 +3,7 @@ from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def index(request):
     return render(request, 'topicApp/index.html')
@@ -17,6 +18,7 @@ def topic(request, topic_id):
     entries = topic.entry_set.order_by('-date_added')
     return render(request, 'topicApp/topic.html', {'topic': topic, 'entries': entries})
 
+@ login_required(login_url = '/users/login')
 def new_topic(request):
     if request.method == "POST":
         forms = TopicForm(request.POST)
@@ -27,6 +29,7 @@ def new_topic(request):
         forms = TopicForm()
     return render(request, 'topicApp/new_topic.html', {'forms': forms})
 
+@ login_required(login_url = '/users/login')
 def new_entry(request, topic_id):
     topic = Topic.objects.get(id=topic_id)
 
@@ -43,7 +46,7 @@ def new_entry(request, topic_id):
     return render(request, 'topicApp/new_entry.html', {'topic': topic,
                                                        "entry": entry})
 
-
+@ login_required(login_url = '/users/login')
 def edit_entry(request, entry_id):
     entry = Entry.objects.get(id =entry_id)
     topic = entry.topic
@@ -56,3 +59,4 @@ def edit_entry(request, entry_id):
         form = EntryForm(instance=entry)
     return render(request, 'topicApp/edit_entry.html', {'form':form,
                                                         'entry': entry})
+
